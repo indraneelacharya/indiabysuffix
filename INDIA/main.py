@@ -5,7 +5,6 @@ import random
 import colorsys
 import time
 
-# calling the Nominatim tool
 loc = Nominatim(user_agent="GetLoc")
 
 suffix_list = ['pur', 'puri', 'pura', 'pora', 'puram', 'gaon', 'gum', 'halli', 'palle', 'palli' 
@@ -46,7 +45,7 @@ def legend():
         draw.text((x-rad+40, y-rad+18), text, fill ="black", font = font, align ="left") 
         i+=20
 
-with open('/Users/indraneelacharya/Documents/Py/INDIA/data.csv', mode ='r',encoding = 'unicode_escape') as file:
+with open('/Users/indraneelacharya/Documents/Py/INDIA/cities.csv', mode ='r',encoding = 'unicode_escape') as file:
     csvFile = csv.reader(file)
     i = 1
     j = 1
