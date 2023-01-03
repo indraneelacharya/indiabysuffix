@@ -54,6 +54,7 @@ with open('/Users/indraneelacharya/Documents/Py/INDIA/cities.csv', mode ='r',enc
         if lines != None:
             j+=1
             location = lines[0]
+            state = lines[1]
             if ((location[-4:] in a) or (location[-3:] in a) or (location[-5:] in a)):
                 if (location[-5:] in a):
                     suffix = location[-5:]
@@ -76,14 +77,14 @@ with open('/Users/indraneelacharya/Documents/Py/INDIA/cities.csv', mode ='r',enc
                     hex = suf_dict[suffix]
                 
                 try:
-                    getLoc = loc.geocode(location)
+                    getLoc = loc.geocode(location +','+ state)
                 except:
                     print()
                     continue
                 if getLoc != None:
                     i+=1
                     
-                    print(location,suffix,i)
+                    print(location,state,suffix,i)
                     pixels = img.load() # create the pixel map
                     lat = getLoc.latitude
                     long = getLoc.longitude
@@ -96,10 +97,11 @@ with open('/Users/indraneelacharya/Documents/Py/INDIA/cities.csv', mode ='r',enc
                     draw.ellipse(twoPointList, fill=(hex))
                     i+=1
                     if j%100 ==0: 
-                        img.save("/Users/indraneelacharya/Documents/Py/INDIA/india_new2.jpg")
+                        
                     if j%1000 ==0:    
                         img.show()
 
 legend()
+img.save("/Users/indraneelacharya/Documents/Py/INDIA/india_new2.jpg")
 img.show()
 
