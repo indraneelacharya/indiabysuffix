@@ -4,11 +4,13 @@ import csv
 import random
 import colorsys
 import time
+import os
 
 loc = Nominatim(user_agent="GetLoc")
 
 suffix_list = ['pur', 'puri', 'pura', 'pora', 'puram', 'gaon', 'gum', 'halli', 'palle', 'palli' 
-'nagar', 'wadi', 'patti', 'abad','hari', 'khera', 'garh', 'guda', 'uru', 'oor']
+'nagar', 'wadi', 'patti', 'abad','hari', 'khera', 'garh', 'guda', 'uru', 'oor', 'khurd', 'ariya', 'kalan', 
+'para', 'pada', 'hara', 'khera', 'chak', 'bari','ner','mer', 'uur', 'ganj']
 suf_dict={}
 
 colors_list = ['#ff0000','#ff8c00',
@@ -25,6 +27,7 @@ pixel_width = 1130
 pixel_height = 1250
 
 global img 
+
 img = Image.open("/Users/indraneelacharya/Documents/Py/INDIA/india_new.jpg")
 global draw
 draw = ImageDraw.Draw(img)
@@ -67,12 +70,13 @@ with open('/Users/indraneelacharya/Documents/Py/INDIA/cities.csv', mode ='r',enc
 
 
                 if (suffix not in suf_dict):
-                    '''h,s,l = random.random(), 0.5 + random.random()/2.0, 0.4 + random.random()/5.0
+                    h,s,l = random.random(), 0.5 + random.random()/2.0, 0.4 + random.random()/5.0
                     r,g,b = [int(256*i) for i in colorsys.hls_to_rgb(h,l,s)]   
-                    suf_dict[suffix] = (r,g,b)'''
-                    suf_dict[suffix] = colors_list[colors_num]
-                    colors_num+=1
-                    hex = colors_list[colors_num]
+                    hex = '#%02x%02x%02x' %(r,g,b)
+                    suf_dict[suffix] = hex
+                    #suf_dict[suffix] = colors_list[colors_num]
+                    #colors_num+=1
+                    #hex = colors_list[colors_num]
                 else:
                     hex = suf_dict[suffix]
                 
@@ -97,7 +101,7 @@ with open('/Users/indraneelacharya/Documents/Py/INDIA/cities.csv', mode ='r',enc
                     draw.ellipse(twoPointList, fill=(hex))
                     i+=1
                     if j%100 ==0: 
-                        img.save("/Users/indraneelacharya/Documents/Py/INDIA/india_new2.jpg")
+                        img.save("/Users/indraneelacharya/Documents/Py/INDIA/india_mapped_final.jpg")
 
                     if j%1000 ==0:    
                         img.show()

@@ -1,7 +1,5 @@
-import csv
-with open('/Users/indraneelacharya/Documents/Py/INDIA/data.csv', mode ='r',encoding = 'unicode_escape'
-
-) as file:
-    csvFile = csv.reader(file)
-    for lines in csvFile:
-        print(lines)
+import os
+from PIL import Image
+img = Image.open("/Users/indraneelacharya/Documents/Py/INDIA/india_new.jpg")
+img.show()
+print(os.getcwd())
