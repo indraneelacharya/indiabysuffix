@@ -97,7 +97,8 @@ with open('/Users/indraneelacharya/Documents/Py/INDIA/cities.csv', mode ='r',enc
                     draw.ellipse(twoPointList, fill=(hex))
                     i+=1
                     if j%100 ==0: 
-                        
+                        img.save("/Users/indraneelacharya/Documents/Py/INDIA/india_new2.jpg")
+
                     if j%1000 ==0:    
                         img.show()
 
