@@ -28,7 +28,7 @@ pixel_height = 1250
 
 global img 
 
-img = Image.open("/Users/indraneelacharya/Documents/Py/INDIA/india_new.jpg")
+img = Image.open("INDIA/india_new.jpg")
 global draw
 draw = ImageDraw.Draw(img)
 
@@ -36,7 +36,7 @@ def legend():
     i = 0
     for key,val in suf_dict.items():     
         hex = val
-        font = ImageFont.truetype('/Users/indraneelacharya/Documents/Py/INDIA/Open_Sans/static/OpenSans/OpenSans-SemiBold.ttf', 10) 
+        font = ImageFont.truetype('INDIA/Open_Sans/static/OpenSans/OpenSans-SemiBold.ttf', 10) 
         x = ((i)//200)*60
         y = i%200
         rad = 5
@@ -48,7 +48,7 @@ def legend():
         draw.text((x-rad+40, y-rad+18), text, fill ="black", font = font, align ="left") 
         i+=20
 
-with open('/Users/indraneelacharya/Documents/Py/INDIA/cities.csv', mode ='r',encoding = 'unicode_escape') as file:
+with open('INDIA/cities.csv', mode ='r',encoding = 'unicode_escape') as file:
     csvFile = csv.reader(file)
     i = 1
     j = 1
@@ -101,12 +101,12 @@ with open('/Users/indraneelacharya/Documents/Py/INDIA/cities.csv', mode ='r',enc
                     draw.ellipse(twoPointList, fill=(hex))
                     i+=1
                     if j%100 ==0: 
-                        img.save("/Users/indraneelacharya/Documents/Py/INDIA/india_mapped_final.jpg")
+                        img.save("INDIA/india_mapped_final.jpg")
 
                     if j%1000 ==0:    
                         img.show()
 
 legend()
-img.save("/Users/indraneelacharya/Documents/Py/INDIA/india_new2.jpg")
+img.save("INDIA/india_new2.jpg")
 img.show()
 
